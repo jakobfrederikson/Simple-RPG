@@ -3,6 +3,7 @@
     "objectSlug": "sword",
     "itemName": "Sword",
     "description": "A long, sharp blade.",
+    "itemType": "Weapon",
     "actionName": "Equip",
     "itemModifier": 0,
     "Stats": [
