@@ -9,7 +9,7 @@ public class ItemDatabase : MonoBehaviour
     public List<Item> Items { get; set; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null && Instance != this)
             Destroy(gameObject);

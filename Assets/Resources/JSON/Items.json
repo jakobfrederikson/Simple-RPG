@@ -13,7 +13,7 @@
       },
       {
         "BaseValue": 4,
-        "StatName": "Speed"
+        "StatName": "Vitality"
       }
     ]
   },
@@ -21,6 +21,7 @@
     "objectSlug": "potion_log",
     "itemName": "Log Potion",
     "description": "A potion that logs something to the console",
+    "itemType":  "Consumable",
     "actionName": "Drink",
     "itemModifier": 0
   }
