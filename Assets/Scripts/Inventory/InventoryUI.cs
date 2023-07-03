@@ -32,6 +32,6 @@ public class InventoryUI : MonoBehaviour
         Debug.Log("Item added: " + item.ItemName);
         InventoryUIItem emptyItem = Instantiate(itemContainer);
         emptyItem.SetItem(item);
-        emptyItem.transform.SetParent(scrollViewContent);
+        emptyItem.transform.SetParent(scrollViewContent, false);
     }
 }
