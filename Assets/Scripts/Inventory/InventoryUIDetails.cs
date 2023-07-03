@@ -21,8 +21,8 @@ public class InventoryUIDetails : MonoBehaviour
 
     public void SetItem(Item item, Button selectedButton)
     {
-        itemInteractButton.onClick.RemoveAllListeners();
         gameObject.SetActive(true);
+        itemInteractButton.onClick.RemoveAllListeners();
         this.item = item;
         selectedItemButton = selectedButton;
         itemNameText.text = item.ItemName;
@@ -36,13 +36,14 @@ public class InventoryUIDetails : MonoBehaviour
         if (item.ItemType == Item.ItemTypes.Consumable)
         {
             InventoryController.Instance.ConsumeItem(item);
+            Destroy(selectedItemButton.gameObject);
 
         }            
         else if (item.ItemType == Item.ItemTypes.Weapon)
         {
             InventoryController.Instance.EquipItem(item);
-        }
-        Destroy(selectedItemButton.gameObject);
+            Destroy(selectedItemButton.gameObject);
+        }        
         item = null;
         gameObject.SetActive(false);
     }

@@ -8,7 +8,7 @@ public class UIEventHandler : MonoBehaviour
     public static event ItemEventHandler OnItemAddedToInventory;
 
     public static void ItemAddedToInventory(Item item)
-    {
-        OnItemAddedToInventory(item);
+    {        
+        OnItemAddedToInventory(item);  
     }
 }
