@@ -26,6 +26,11 @@ public class BaseStat
         this.StatName = statName;
     }
 
+    public override string ToString()
+    {
+        return StatName + ": " + BaseValue;
+    }
+
     public void AddStatBonus(StatBonus statBonus)
     {
         this.BaseAdditives.Add(statBonus);

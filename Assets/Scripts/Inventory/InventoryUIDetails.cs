@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,8 @@ public class InventoryUIDetails : MonoBehaviour
     private Item item;
     private Button selectedItemButton, itemInteractButton;
     private TextMeshProUGUI itemNameText, itemDescriptionText, itemInteractButtonText;
+
+    public TextMeshProUGUI statText;
 
     private void Start()
     {
@@ -22,6 +25,14 @@ public class InventoryUIDetails : MonoBehaviour
     public void SetItem(Item item, Button selectedButton)
     {
         gameObject.SetActive(true);
+        statText.text = "";
+        if (item.Stats != null)
+        {
+            foreach (BaseStat stat in item.Stats)
+            {
+                statText.text += stat.ToString() + Environment.NewLine;
+            }
+        }
         itemInteractButton.onClick.RemoveAllListeners();
         this.item = item;
         selectedItemButton = selectedButton;
