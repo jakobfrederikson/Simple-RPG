@@ -7,8 +7,11 @@ public class Slime : Interactable, IEnemy
     public float currentHealth, power, toughness;
     public float _maxHealth;
 
+    private CharacterStats characterStats;
+
     private void Start()
     {
+        characterStats = new CharacterStats(6, 10, 2);
         currentHealth = _maxHealth;
     }
 

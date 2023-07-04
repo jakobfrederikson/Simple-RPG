@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ConsumableController : MonoBehaviour
 {
-    private CharacterStats stats;
+    private CharacterStats characterStats;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<CharacterStats>();
+        characterStats = GetComponent<Player>().characterStats;
     }
 
     public void ConsumeItem(Item item)
@@ -17,7 +17,7 @@ public class ConsumableController : MonoBehaviour
         GameObject itemToSpawn = Instantiate(Resources.Load<GameObject>("Consumables/" + item.ObjectSlug));
         if (item.ItemModifier)
         {
-            itemToSpawn.GetComponent<IConsumable>().Consume(stats);
+            itemToSpawn.GetComponent<IConsumable>().Consume(characterStats);
         }
         else
             itemToSpawn.GetComponent <IConsumable>().Consume();
