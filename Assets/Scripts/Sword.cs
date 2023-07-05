@@ -7,16 +7,17 @@ public class Sword : MonoBehaviour, IWeapon
     private Animator animator;
     public List<BaseStat> Stats { get; set; }
     public CharacterStats CharacterStats { get; set; }
+    public int CurrentDamage { get; set; }
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void PerformAttack()
+    public void PerformAttack(int damage)
     {
+        CurrentDamage = damage;
         animator.SetTrigger("Base_Attack");
-        Debug.Log(this.name + " attack!");
     }
 
     public void PerformSpecialAttack()
@@ -28,7 +29,7 @@ public class Sword : MonoBehaviour, IWeapon
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<IEnemy>().TakeDamage(CharacterStats.GetStat(BaseStat.BaseStatType.Power).GetCalculatedStatValue());
+            other.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
         }
         Debug.Log("Hit: " + other.name);
     }

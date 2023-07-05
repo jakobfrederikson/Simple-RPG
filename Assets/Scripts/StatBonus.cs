@@ -9,6 +9,5 @@ public class StatBonus
     public StatBonus(int bonusValue)
     {
         this.BonusValue = bonusValue;
-        Debug.Log("New stat bonus initiated.");
     }
 }

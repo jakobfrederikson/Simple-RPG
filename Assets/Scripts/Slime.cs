@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Slime : Interactable, IEnemy
 {
-    public float currentHealth, power, toughness;
-    public float _maxHealth;
+    public LayerMask aggroLayerMask;
+    public float currentHealth;
+    public float maxHealth;
 
+    private Player player;
+    private NavMeshAgent navAgent;
     private CharacterStats characterStats;
+    private Collider[] withinAggroColliders;
 
     private void Start()
     {
+        navAgent = GetComponent<NavMeshAgent>();
         characterStats = new CharacterStats(6, 10, 2);
-        currentHealth = _maxHealth;
+        currentHealth = maxHealth;
+    }
+
+    private void FixedUpdate()
+    {
+        withinAggroColliders = Physics.OverlapSphere(transform.position, 10f, aggroLayerMask);
+        if (withinAggroColliders.Length > 0)
+        {
+            ChasePlayer(withinAggroColliders[0].GetComponent<Player>());
+        }
     }
 
     public void PerformAttack()
     {
-        throw new System.NotImplementedException();
+        player.TakeDamage(5);
     }
 
     public void TakeDamage(int amount)
@@ -25,6 +40,23 @@ public class Slime : Interactable, IEnemy
         currentHealth -= amount;
         if (currentHealth <= 0)
             Die();
+    }
+
+    private void ChasePlayer(Player player)
+    {
+        navAgent.SetDestination(player.transform.position);
+        this.player = player;        
+        if (navAgent.remainingDistance <= navAgent.stoppingDistance)
+        {
+            if (!IsInvoking("PerformAttack"))
+            {
+                InvokeRepeating("PerformAttack", .5f, 2f);
+            }                
+        }
+        else
+        {
+            CancelInvoke("PerformAttack");
+        }        
     }
 
     private void Die()

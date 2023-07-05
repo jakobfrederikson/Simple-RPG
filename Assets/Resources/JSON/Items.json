@@ -8,7 +8,7 @@
     "itemModifier": 0,
     "Stats": [
       {
-        "StatType":  "Power",
+        "StatType": "Power",
         "BaseValue": 25,
         "StatName": "Power"
       },
@@ -25,10 +25,35 @@
     ]
   },
   {
+    "objectSlug": "staff",
+    "itemName": "George's Fire Staff",
+    "description": "A staff found from the depths of... George?",
+    "itemType": "Weapon",
+    "actionName": "Equip",
+    "itemModifier": 0,
+    "Stats": [
+      {
+        "StatType": "Power",
+        "BaseValue": 25,
+        "StatName": "Power"
+      },
+      {
+        "StatType": "Toughness",
+        "BaseValue": 4,
+        "StatName": "Toughness"
+      },
+      {
+        "StatType": "AttackSpeed",
+        "BaseValue": 10,
+        "StatName": "Attack Speed"
+      }
+    ]
+  },
+  {
     "objectSlug": "potion_log",
     "itemName": "Log Potion",
     "description": "A potion that logs something to the console",
-    "itemType":  "Consumable",
+    "itemType": "Consumable",
     "actionName": "Drink",
     "itemModifier": 0
   }

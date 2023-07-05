@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
 {
-    private Animator animator;
     public List<BaseStat> Stats { get; set; }
-    public CharacterStats CharacterStats { get; set; }
     public Transform ProjectileSpawn { get; set; }
-    private Fireball _fireball;
+    public int CurrentDamage { get; set; }
+
+    private Animator animator;
+    private Fireball fireball;    
 
     private void Start()
     {
-        _fireball = Resources.Load<Fireball>("Weapons/Projectiles/fireball");
+        fireball = Resources.Load<Fireball>("Weapons/Projectiles/fireball");
         animator = GetComponent<Animator>();
     }
 
-    public void PerformAttack()
+    public void PerformAttack(int damage)
     {
         animator.SetTrigger("Base_Attack");
         Debug.Log(this.name + " attack!");
@@ -29,7 +30,7 @@ public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
 
     public void CastProjectile()
     {
-        Fireball fireballInstance = (Fireball)Instantiate(_fireball, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        Fireball fireballInstance = (Fireball)Instantiate(fireball, ProjectileSpawn.position, ProjectileSpawn.rotation);
         fireballInstance.Direction = ProjectileSpawn.forward;
     }
 }
