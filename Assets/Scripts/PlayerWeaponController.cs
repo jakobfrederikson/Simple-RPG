@@ -36,6 +36,7 @@ public class PlayerWeaponController : MonoBehaviour
         equippedWeapon.Stats = itemToEquip.Stats;
         currentlyEquippedItem = itemToEquip;
         characterStats.AddStatBonus(itemToEquip.Stats);
+        UIEventHandler.ItemEquipped(itemToEquip);
     }
 
     private void Update()
