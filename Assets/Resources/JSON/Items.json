@@ -1,7 +1,7 @@
 [
   {
     "objectSlug": "sword",
-    "itemName": "Sword",
+    "itemName": "Great Sword",
     "description": "A long, sharp blade.",
     "itemType": "Weapon",
     "actionName": "Equip",
@@ -14,13 +14,13 @@
       },
       {
         "StatType": "Toughness",
-        "BaseValue": 4,
+        "BaseValue": 10,
         "StatName": "Toughness"
       },
       {
         "StatType": "AttackSpeed",
-        "BaseValue": 4,
-        "StatName": "Attack Speed"
+        "BaseValue": 10,
+        "StatName": "AtkSpeed"
       }
     ]
   },
@@ -34,18 +34,18 @@
     "Stats": [
       {
         "StatType": "Power",
-        "BaseValue": 25,
+        "BaseValue": 10,
         "StatName": "Power"
       },
       {
         "StatType": "Toughness",
-        "BaseValue": 4,
+        "BaseValue": 2,
         "StatName": "Toughness"
       },
       {
         "StatType": "AttackSpeed",
-        "BaseValue": 10,
-        "StatName": "Attack Speed"
+        "BaseValue": 2,
+        "StatName": "AtkSpeed"
       }
     ]
   },
