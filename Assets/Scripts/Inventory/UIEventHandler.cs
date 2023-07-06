@@ -41,7 +41,7 @@ public class UIEventHandler : MonoBehaviour
             OnStatsChanged();
     }
 
-    public static void LevelChange()
+    public static void PlayerLevelChanged()
     {
         if (OnPlayerLevelChange != null)
             OnPlayerLevelChange();
