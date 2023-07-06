@@ -8,16 +8,25 @@ public class Slime : Interactable, IEnemy
     public LayerMask aggroLayerMask;
     public float currentHealth;
     public float maxHealth;
+    public int Experience { get; set; }
+    public DropTable DropTable { get; set; }
+    public PickupItem pickupItem;
 
     private Player player;
     private NavMeshAgent navAgent;
     private CharacterStats characterStats;
     private Collider[] withinAggroColliders;
 
-    public int Experience { get; set; }
-
     private void Start()
     {
+        DropTable = new DropTable();
+        DropTable.loot = new List<LootDrop>()
+        {
+            new LootDrop("sword", 50),
+            new LootDrop("staff", 50),
+            new LootDrop("potion_log", 10)
+        };
+
         Experience = 20;
         navAgent = GetComponent<NavMeshAgent>();
         characterStats = new CharacterStats(6, 10, 2);
@@ -64,7 +73,18 @@ public class Slime : Interactable, IEnemy
 
     public void Die()
     {
+        DropLoot();
         CombatEvents.EnemyDied(this);
         Destroy(gameObject);
+    }
+
+    private void DropLoot()
+    {
+        Item item = DropTable.GetDrop();
+        if (item != null)
+        {
+            PickupItem instance = Instantiate(pickupItem, transform.position, Quaternion.identity);
+            instance.ItemDrop = item;
+        }
     }
 }
