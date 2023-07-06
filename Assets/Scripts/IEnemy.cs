@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IEnemy 
 {
+    Spawner Spawner { get; set; }
     public int Experience { get; set; }
     void Die();
     void TakeDamage(int amount);
