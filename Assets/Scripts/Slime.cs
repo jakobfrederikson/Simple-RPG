@@ -8,6 +8,7 @@ public class Slime : Interactable, IEnemy
     public LayerMask aggroLayerMask;
     public float currentHealth;
     public float maxHealth;
+    public int ID { get; set; }
     public int Experience { get; set; }
     public DropTable DropTable { get; set; }
     public Spawner Spawner { get; set; }
@@ -27,7 +28,7 @@ public class Slime : Interactable, IEnemy
             new LootDrop("staff", 50),
             new LootDrop("potion_log", 10)
         };
-
+        ID = 0;
         Experience = 20;
         navAgent = GetComponent<NavMeshAgent>();
         characterStats = new CharacterStats(6, 10, 2);
