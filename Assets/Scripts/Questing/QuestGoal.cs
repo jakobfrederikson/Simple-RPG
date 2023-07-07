@@ -26,5 +26,6 @@ public class QuestGoal
     public void Complete()
     {
         Completed = true;
+        this.Quest.CheckGoals();        
     }
 }

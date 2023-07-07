@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillGoal : QuestGoal
+public class CollectionGoal : QuestGoal
 {
-    public int EnemyID { get; set; }
+    public string ItemID { get; set; }
 
-    public KillGoal(Quest quest, int enemyID, string description, bool completed, int currentAmount, int requiredAmount) 
+    public CollectionGoal(Quest quest, string itemID, string description, bool completed, int currentAmount, int requiredAmount) 
     {
         this.Quest = quest;
-        this.EnemyID = enemyID;
+        this.ItemID = itemID;
         this.Description = description;
         this.Completed = completed;
         this.CurrentAmount = currentAmount;
@@ -20,12 +20,12 @@ public class KillGoal : QuestGoal
     public override void Init()
     {
         base.Init();
-        CombatEvents.OnEnemyDeath += EnemyDied;
+        UIEventHandler.OnItemAddedToInventory += ItemPickedUp;
     }
 
-    private void EnemyDied (IEnemy enemy)
+    private void ItemPickedUp (Item item)
     {
-        if (enemy.ID == this.EnemyID)
+        if (item.ObjectSlug == this.ItemID)
         {
             this.CurrentAmount++;
             Evaluate();

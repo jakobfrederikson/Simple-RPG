@@ -36,4 +36,19 @@ public class Quest : MonoBehaviour
             InventoryController.Instance.GiveItem(ItemReward);
         }
     }
+
+    public virtual string[] StartQuestDialogue()
+    {
+        return new string[] { "StartQuestDialogue" };
+    }
+
+    public virtual string[] BetweenQuestDialogue()
+    {
+        return new string[] { "BetweenQuestDialogue" };
+    }
+
+    public virtual string[] EndQuestDialogue()
+    {
+        return new string[] { "EndQuestDialogue" };
+    }
 }

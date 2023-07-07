@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Slime : Interactable, IEnemy
+public class Vampire : Interactable, IEnemy
 {
     public LayerMask aggroLayerMask;
     public float currentHealth;
@@ -24,14 +24,14 @@ public class Slime : Interactable, IEnemy
         DropTable = new DropTable();
         DropTable.loot = new List<LootDrop>()
         {
-            new LootDrop("sword", 25),
-            new LootDrop("staff", 25),
-            new LootDrop("potion_log", 75)
+            new LootDrop("sword", 50),
+            new LootDrop("staff", 50),
+            new LootDrop("potion_log", 10)
         };
-        ID = 0;
-        Experience = 250;
+        ID = 1;
+        Experience = 300;
         navAgent = GetComponent<NavMeshAgent>();
-        characterStats = new CharacterStats(6, 10, 2);
+        characterStats = new CharacterStats(8, 10, 2);
         currentHealth = maxHealth;
     }
 

@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (spawning)
+        if (spawning && respawn)
         {
             currentTime -= Time.deltaTime;
             if (currentTime <= 0)
