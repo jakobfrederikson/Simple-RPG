@@ -39,6 +39,7 @@ public class CharacterPanel : MonoBehaviour
         UpdateHealth(player.currentHealth, player.maxHealth);
         UpdateLevel();
         InitializeStats();
+        UpdateStats();
     }
 
     private void UpdateEquippedItem(Item item)
@@ -82,6 +83,7 @@ public class CharacterPanel : MonoBehaviour
 
     private void UpdateLevel()
     {
+        Debug.Log(level.text);
         this.level.text = player.PlayerLevel.Level.ToString();
         this.levelFill.fillAmount = (float)player.PlayerLevel.CurrentExperience / (float)player.PlayerLevel.RequiredExperience;
     }

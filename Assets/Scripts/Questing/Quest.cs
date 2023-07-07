@@ -17,7 +17,7 @@ public class Quest : MonoBehaviour
             Level = value;
         }
     }
-    public List<QuestGoal> QuestGoals { get; set; }
+    public List<QuestGoal> QuestGoals { get; set; } = new List<QuestGoal>();
     public string QuestName { get; set; }
     public string Description { get; set; }
     public int ExperienceReward { get; set; }

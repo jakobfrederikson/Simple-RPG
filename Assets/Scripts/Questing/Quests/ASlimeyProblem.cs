@@ -12,11 +12,8 @@ public class ASlimeyProblem : Quest
         ItemReward = ItemDatabase.Instance.GetItem("potion_log");
         ExperienceReward = 100;
 
-        QuestGoals = new List<QuestGoal>
-        {
-            new KillGoal(this, 0, "Kill 3 Slimes", false, 0, 3),
-            new CollectionGoal(this, "potion_log", "Collect a log potion", false, 0, 1)
-        };
+        QuestGoals.Add(new KillGoal(this, 0, "Kill 3 Slimes", false, 0, 3));
+        QuestGoals.Add(new CollectionGoal(this, "potion_log", "Collect a log potion", false, 0, 1));
 
         QuestGoals.ForEach(g => g.Init());
     }
