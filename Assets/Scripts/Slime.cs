@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,9 @@ public class Slime : Interactable, IEnemy
     private CharacterStats characterStats;
     private Collider[] withinAggroColliders;
 
+    private TextMeshPro damagePopupText;
+    private float damagePopupDisappearTime = 1f;
+
     private void Start()
     {
         DropTable = new DropTable();
@@ -33,6 +37,7 @@ public class Slime : Interactable, IEnemy
         navAgent = GetComponent<NavMeshAgent>();
         characterStats = new CharacterStats(6, 10, 2, 0);
         currentHealth = maxHealth;
+        damagePopupText = Resources.Load<TextMeshPro>("UI/DamagePopupPrefab");
     }
 
     private void FixedUpdate()
@@ -53,8 +58,19 @@ public class Slime : Interactable, IEnemy
     {
         currentHealth -= amount;
         Debug.Log(this + " just took " + amount + " damage.");
+        DamagePopup(amount);
         if (currentHealth <= 0)
             Die();
+    }
+
+    public void DamagePopup(int amount)
+    {
+        Transform parent = transform.Find("DamagePopupParent");
+        TextMeshPro damagePopupInstance = (TextMeshPro)Instantiate(damagePopupText, parent.transform.position, Quaternion.identity, parent);
+        damagePopupInstance.text = amount.ToString();
+
+
+        
     }
 
     private void ChasePlayer(Player player)
@@ -79,7 +95,7 @@ public class Slime : Interactable, IEnemy
         DropLoot();
         CombatEvents.EnemyDied(this);
         this.Spawner.Respawn();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void DropLoot()
@@ -90,5 +106,5 @@ public class Slime : Interactable, IEnemy
             PickupItem instance = Instantiate(pickupItem, transform.position, Quaternion.identity);
             instance.ItemDrop = item;
         }
-    }
+    } 
 }

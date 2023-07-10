@@ -56,6 +56,11 @@ public class Vampire : Interactable, IEnemy
             Die();
     }
 
+    public void DamagePopup(int amount)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void ChasePlayer(Player player)
     {
         navAgent.SetDestination(player.transform.position);
