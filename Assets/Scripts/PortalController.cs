@@ -18,16 +18,37 @@ public class PortalController : MonoBehaviour
         panel.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && panel.gameObject.activeSelf)
+        {
+            panel.SetActive(false);
+        }
+    }
+
     public void ActivatePortal(Portal[] portals)
     {
         panel.SetActive(true);
+        bool portalAlreadyInsantiated = false;
 
         for (int i = 0; i < portals.Length; i++)
         {
-            Button portalButton = Instantiate(button, panel.transform);
-            portalButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = portals[i].name;
-            int x = i;
-            portalButton.onClick.AddListener(delegate { OnPortalButtonClick(portals[x]); });
+            portalAlreadyInsantiated = false;
+            foreach (Button button in GetComponentsInChildren<Button>())
+            {
+                if (button.name == portals[i].name) 
+                {
+                    portalAlreadyInsantiated = true;
+                }
+            }
+            if (!portalAlreadyInsantiated)
+            {
+                Button portalButton = Instantiate(button, panel.transform);
+                portalButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = portals[i].name;
+                portalButton.name = portals[i].name;
+                int x = i;
+                portalButton.onClick.AddListener(delegate { OnPortalButtonClick(portals[x]); });
+            }            
         }
     }
 
