@@ -83,7 +83,6 @@ public class CharacterPanel : MonoBehaviour
 
     private void UpdateLevel()
     {
-        Debug.Log(level.text);
         this.level.text = player.PlayerLevel.Level.ToString();
         this.levelFill.fillAmount = (float)player.PlayerLevel.CurrentExperience / (float)player.PlayerLevel.RequiredExperience;
     }
