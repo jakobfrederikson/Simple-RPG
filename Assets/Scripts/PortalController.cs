@@ -36,13 +36,19 @@ public class PortalController : MonoBehaviour
         player.transform.position = portal.TeleportLocation;
         foreach (Button button in GetComponentsInChildren<Button>())
         {
-            Destroy(button.gameObject);
+            if (button.gameObject.name != "CancelButton")
+                Destroy(button.gameObject);
         }
         panel.SetActive(false);
     }
 
-    public void SetInactiveAfterAwake()
+    public void OnCancelButtonClick()
     {
+        foreach (Button button in GetComponentsInChildren<Button>())
+        {
+            if (button.gameObject.name != "CancelButton")
+                Destroy(button.gameObject);
+        }
         panel.SetActive(false);
     }
 }
