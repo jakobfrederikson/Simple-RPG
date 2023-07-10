@@ -19,6 +19,14 @@ public class WorldInteraction : MonoBehaviour
         {
             GetInteraction();
         }
+
+        if (playerAgent.velocity.magnitude > 0f || playerAgent.velocity.magnitude < 0f)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                playerAgent.destination = playerAgent.transform.position;
+            }
+        }
     }
 
     private void GetInteraction()
