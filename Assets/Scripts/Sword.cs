@@ -31,6 +31,5 @@ public class Sword : MonoBehaviour, IWeapon
         {
             other.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
         }
-        Debug.Log("Hit: " + other.name);
     }
 }
