@@ -6,8 +6,8 @@ public class Sword : MonoBehaviour, IWeapon
 {
     private Animator animator;
     public List<BaseStat> Stats { get; set; }
-    public CharacterStats CharacterStats { get; set; }
     public int CurrentDamage { get; set; }
+    public BaseStat.BaseStatType WeaponStatType { get; set; } = BaseStat.BaseStatType.Strength;
 
     private void Start()
     {

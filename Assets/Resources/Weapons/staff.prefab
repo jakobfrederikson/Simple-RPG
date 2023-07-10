@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 879971224776518330}
   - component: {fileID: -4590763875603293456}
   - component: {fileID: -8958427429762543274}
+  - component: {fileID: 4580405731555501363}
   m_Layer: 0
   m_Name: staff
   m_TagString: Untagged
@@ -146,3 +147,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4580405731555501363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997577715756392727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.12867056, y: 1.854865, z: 0.10569104}
+  m_Center: {x: -0.0058062226, y: 0.92743295, z: -0.0008415133}

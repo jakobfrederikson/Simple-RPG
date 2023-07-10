@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public IWeapon parentWeapon;
-
     public Vector3 Direction { get; set; }
     public float Range { get; set; }
 
@@ -39,7 +37,6 @@ public class Fireball : MonoBehaviour
         if (collision.transform.CompareTag("Enemy"))
         {
             collision.transform.GetComponent<IEnemy>().TakeDamage(FinalDamageValue());
-            Debug.Log("Hit: " + collision.gameObject + " for " + FinalDamageValue() + " DAMAGE.");
         }
         Extinguish();
     }
