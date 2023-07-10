@@ -9,18 +9,21 @@ public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
     public int CurrentDamage { get; set; }
 
     private Animator animator;
-    private Fireball fireball;    
+    private Fireball fireball;
+    private BaseStat.BaseStatType WeaponStatType = BaseStat.BaseStatType.Intellect;
+    private Player player;
 
     private void Start()
     {
         fireball = Resources.Load<Fireball>("Weapons/Projectiles/fireball");
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<Player>();
     }
 
     public void PerformAttack(int damage)
     {
+        CurrentDamage = damage;
         animator.SetTrigger("Base_Attack");
-        Debug.Log(this.name + " attack!");
     }
 
     public void PerformSpecialAttack()
@@ -31,6 +34,8 @@ public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
     public void CastProjectile()
     {
         Fireball fireballInstance = (Fireball)Instantiate(fireball, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        fireballInstance.parentWeapon = this;
+        fireballInstance.ApplyPlayerStatsToDamage(player.characterStats.GetStat(WeaponStatType).GetCalculatedStatValue());
         fireballInstance.Direction = ProjectileSpawn.forward;
     }
 }

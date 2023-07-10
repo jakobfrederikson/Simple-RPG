@@ -15,7 +15,6 @@ public class DropTable
             weightSum += drop.Weight;
             if (roll < weightSum)
             {
-                Debug.Log("Found Item");
                 return ItemDatabase.Instance.GetItem(drop.ItemSlug);
             }
         }
