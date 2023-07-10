@@ -43,6 +43,7 @@ public class PlayerWeaponController : MonoBehaviour
     public void UnequipWeapon()
     {
         InventoryController.Instance.GiveItem(currentlyEquippedItem.ObjectSlug);
+        currentlyEquippedItem = null;
         characterStats.RemoveStatBonus(equippedWeapon.Stats);
         Destroy(EquippedWeapon.transform.gameObject);
         UIEventHandler.StatsChanged();
@@ -50,10 +51,13 @@ public class PlayerWeaponController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-            PerformWeaponAttack();
-        if (Input.GetKeyDown(KeyCode.Y))
-            PerformWeaponSpecialAttack();
+        if (currentlyEquippedItem != null)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+                PerformWeaponAttack();
+            if (Input.GetKeyDown(KeyCode.Y))
+                PerformWeaponSpecialAttack();
+        }        
     }
 
     public void PerformWeaponAttack()

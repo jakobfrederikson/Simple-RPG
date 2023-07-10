@@ -7,7 +7,7 @@ public class WorldInteraction : MonoBehaviour
 {
     private NavMeshAgent playerAgent;
 
-    private void Start()
+    private void Awake()
     {
         playerAgent = GetComponent<NavMeshAgent>();
     }
