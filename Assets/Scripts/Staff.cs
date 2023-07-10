@@ -11,11 +11,16 @@ public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
 
     private Animator animator;
     private Fireball fireball;
+    private LightningBall lightningBall;
+
+    private Player player;
 
     private void Start()
     {
         fireball = Resources.Load<Fireball>("Weapons/Projectiles/fireball");
+        lightningBall = Resources.Load<LightningBall>("Weapons/Projectiles/lightningball");
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<Player>();
     }
 
     public void PerformAttack(int damage)
@@ -38,6 +43,9 @@ public class Staff : MonoBehaviour, IWeapon, IProjectileWeapon
 
     public void CastSpecialProjectile()
     {
-
+        CurrentDamage = player.characterStats.GetStat(WeaponStatType).GetCalculatedStatValue() * 3;
+        LightningBall lightningballInstance = (LightningBall)Instantiate(lightningBall, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        lightningballInstance.ApplyPlayerStatsToDamage(CurrentDamage);
+        lightningballInstance.Direction = ProjectileSpawn.forward;
     }
 }
