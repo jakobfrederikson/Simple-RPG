@@ -3361,7 +3361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerMesh: {fileID: 0}
-  monster: {fileID: 116112, guid: 100dded3f80a43846a29e6fdf0e82019, type: 3}
+  monster: {fileID: 8721458925702788536, guid: da549809ecd539b48a09b7c81758219c, type: 3}
   respawn: 0
   spawnDelay: 5
 --- !u!4 &702002835

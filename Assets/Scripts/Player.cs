@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     {
         PlayerLevel = GetComponent<PlayerLevel>();
         this.currentHealth = this.maxHealth;
-        characterStats = new CharacterStats(10, 10, 10);
+        characterStats = new CharacterStats(10, 10, 10, 10);
     }
 
     public void TakeDamage(int amount)

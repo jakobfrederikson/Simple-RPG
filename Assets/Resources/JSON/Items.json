@@ -8,19 +8,14 @@
     "itemModifier": 0,
     "Stats": [
       {
-        "StatType": "Power",
-        "BaseValue": 25,
-        "StatName": "Power"
+        "StatType": "Stamina",
+        "BaseValue": 10,
+        "StatName": "Stamina"
       },
       {
-        "StatType": "Toughness",
-        "BaseValue": 10,
-        "StatName": "Toughness"
-      },
-      {
-        "StatType": "AttackSpeed",
-        "BaseValue": 10,
-        "StatName": "AtkSpeed"
+        "StatType": "Strength",
+        "BaseValue": 50,
+        "StatName": "Strength"
       }
     ]
   },
@@ -33,19 +28,14 @@
     "itemModifier": 0,
     "Stats": [
       {
-        "StatType": "Power",
+        "StatType": "Stamina",
         "BaseValue": 10,
-        "StatName": "Power"
+        "StatName": "Stamina"
       },
       {
-        "StatType": "Toughness",
-        "BaseValue": 2,
-        "StatName": "Toughness"
-      },
-      {
-        "StatType": "AttackSpeed",
-        "BaseValue": 2,
-        "StatName": "AtkSpeed"
+        "StatType": "Intellect",
+        "BaseValue": 50,
+        "StatName": "Intellect"
       }
     ]
   },

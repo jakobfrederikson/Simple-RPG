@@ -31,7 +31,7 @@ public class Vampire : Interactable, IEnemy
         ID = 1;
         Experience = 300;
         navAgent = GetComponent<NavMeshAgent>();
-        characterStats = new CharacterStats(8, 10, 2);
+        characterStats = new CharacterStats(8, 10, 2, 10);
         currentHealth = maxHealth;
     }
 

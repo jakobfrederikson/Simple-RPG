@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 5148985170388204428}
   m_Layer: 0
   m_Name: Character_Peasant_Brown
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

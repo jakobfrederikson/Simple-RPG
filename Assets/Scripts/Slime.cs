@@ -31,7 +31,7 @@ public class Slime : Interactable, IEnemy
         ID = 0;
         Experience = 250;
         navAgent = GetComponent<NavMeshAgent>();
-        characterStats = new CharacterStats(6, 10, 2);
+        characterStats = new CharacterStats(6, 10, 2, 0);
         currentHealth = maxHealth;
     }
 

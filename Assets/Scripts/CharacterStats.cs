@@ -6,13 +6,14 @@ public class CharacterStats
 {
     public List<BaseStat> stats = new List<BaseStat>();
 
-    public CharacterStats(int power, int toughness, int attackSpeed)
+    public CharacterStats(int stamina, int strength, int agility, int intellect)
     {
         stats = new List<BaseStat>()
         {
-            new BaseStat(BaseStat.BaseStatType.Power, power, "Power"),
-            new BaseStat(BaseStat.BaseStatType.Toughness, toughness, "Toughness"),
-            new BaseStat(BaseStat.BaseStatType.AttackSpeed, attackSpeed, "Atk Spd")
+            new BaseStat(BaseStat.BaseStatType.Stamina, stamina, "Stamina"),
+            new BaseStat(BaseStat.BaseStatType.Strength, strength, "Strength"),
+            new BaseStat(BaseStat.BaseStatType.Agility, agility, "Agility"),
+            new BaseStat(BaseStat.BaseStatType.Intellect, intellect, "Intellect")
         };
     }
 
