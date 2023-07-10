@@ -50,7 +50,7 @@ public class CharacterPanel : MonoBehaviour
         for (int i = 0; i < item.Stats.Count; i++)
         {
             weaponStatTexts.Add(Instantiate(weaponStatPrefab));
-            weaponStatTexts[i].transform.SetParent(weaponStatPanel);
+            weaponStatTexts[i].transform.SetParent(weaponStatPanel, false);
             weaponStatTexts[i].text = item.Stats[i].StatName + ": " + item.Stats[i].GetCalculatedStatValue().ToString();
         }
     }
@@ -92,7 +92,7 @@ public class CharacterPanel : MonoBehaviour
         for (int i = 0; i < player.characterStats.stats.Count; i++)
         {
             playerStatTexts.Add(Instantiate(playerStatPrefab));
-            playerStatTexts[i].transform.SetParent(playerStatPanel);
+            playerStatTexts[i].transform.SetParent(playerStatPanel, false);
         }
         UpdateStats();
     }
