@@ -52,6 +52,7 @@ public class Vampire : Interactable, IEnemy
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        DamagePopupSystem.Instance.DisplayPopupText(this.transform, amount);
         if (currentHealth <= 0)
             Die();
     }

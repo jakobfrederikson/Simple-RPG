@@ -57,12 +57,7 @@ public class Slime : Interactable, IEnemy
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        Debug.Log(this + " just took " + amount + " damage.");
-
-        Transform popupParent = transform.Find("DamagePopupParent");
-        GameObject popUp = Instantiate(damagePopupPrefab, popupParent.position, Quaternion.identity, popupParent);
-        popUp.GetComponent<DamagePopup>().SetUp(amount);
-
+        DamagePopupSystem.Instance.DisplayPopupText(this.transform, amount);
         if (currentHealth <= 0)
             Die();
     }
