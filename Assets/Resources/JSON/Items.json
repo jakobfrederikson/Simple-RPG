@@ -9,12 +9,12 @@
     "Stats": [
       {
         "StatType": "Stamina",
-        "BaseValue": 10,
+        "BaseValue": 1,
         "StatName": "Stamina"
       },
       {
         "StatType": "Strength",
-        "BaseValue": 50,
+        "BaseValue": 2,
         "StatName": "Strength"
       }
     ]
@@ -29,12 +29,12 @@
     "Stats": [
       {
         "StatType": "Stamina",
-        "BaseValue": 10,
+        "BaseValue": 3,
         "StatName": "Stamina"
       },
       {
         "StatType": "Intellect",
-        "BaseValue": 50,
+        "BaseValue": 5,
         "StatName": "Intellect"
       }
     ]

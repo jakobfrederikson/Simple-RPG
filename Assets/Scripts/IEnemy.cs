@@ -9,6 +9,5 @@ public interface IEnemy
     public int ID { get; set; }
     void Die();
     void TakeDamage(int amount);
-    void DamagePopup(int amount);
     void PerformAttack();
 }
