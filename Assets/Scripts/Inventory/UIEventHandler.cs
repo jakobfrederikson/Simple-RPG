@@ -11,6 +11,9 @@ public class UIEventHandler : MonoBehaviour
     public delegate void PlayerHealthEventHandler(int currentHealth, int maxHealth);
     public static event PlayerHealthEventHandler OnPlayerHealthChanged;
 
+    public delegate void PlayerIntellectEventHandler(int currentIntellect, int maxIntellect);
+    public static event PlayerIntellectEventHandler OnPlayerIntellectChanged;
+
     public delegate void StatsEventHandler();
     public static event StatsEventHandler OnStatsChanged;
 
@@ -33,6 +36,12 @@ public class UIEventHandler : MonoBehaviour
     {
         if (OnPlayerHealthChanged != null)
             OnPlayerHealthChanged(currentHealth, maxHealth);
+    }
+
+    public static void IntellectChanged(int currentIntellect, int maxIntellect)
+    {
+        if (OnPlayerIntellectChanged != null)
+            OnPlayerIntellectChanged(currentIntellect, maxIntellect);
     }
 
     public static void StatsChanged()

@@ -7,12 +7,15 @@ public class Player : MonoBehaviour
     public CharacterStats characterStats;
     public int currentHealth;
     public int maxHealth;
+    public int currentIntellect;
+    public int maxIntellect;
     public PlayerLevel PlayerLevel { get; set; }
 
     private void Start()
     {
         PlayerLevel = GetComponent<PlayerLevel>();
         this.currentHealth = this.maxHealth;
+        this.currentIntellect = this.maxIntellect;
         characterStats = new CharacterStats(10, 10, 10, 10);
     }
 
