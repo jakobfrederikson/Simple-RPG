@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemy 
+public interface IEnemy
 {
     Spawner Spawner { get; set; }
     public int Experience { get; set; }

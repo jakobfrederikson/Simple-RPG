@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Vampire : Interactable, IEnemy
+public class Vampire : Interactable, IEnemy, INameplate
 {
     public LayerMask aggroLayerMask;
     public float currentHealth;

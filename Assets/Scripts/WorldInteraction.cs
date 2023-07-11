@@ -41,16 +41,26 @@ public class WorldInteraction : MonoBehaviour
             {
                 Debug.Log("Move to enemy");
                 interactedObject.GetComponent<Interactable>().MoveToInteraction(playerAgent);
+                CheckNameplate(interactedObject);
             }
             else if (interactedObject.CompareTag("Interactable Object"))
             {
                 interactedObject.GetComponent<Interactable>().MoveToInteraction(playerAgent);
+                CheckNameplate(interactedObject);
             }
             else
             {
                 playerAgent.stoppingDistance = 0;
                 playerAgent.destination = interactionInfo.point;
             }
+        }
+    }
+
+    private void CheckNameplate(GameObject interactedObject)
+    {
+        if (interactedObject.GetComponent<INameplate>() != null)
+        {
+            // set up the nameplate for the enemy/NPC
         }
     }
 }

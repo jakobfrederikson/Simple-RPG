@@ -20,6 +20,10 @@ public class UIEventHandler : MonoBehaviour
     public delegate void PlayerLevelEventHandler();
     public static event PlayerLevelEventHandler OnPlayerLevelChange;
 
+    public delegate void SelectableEventHandler();
+    public static event SelectableEventHandler OnSelectableClicked;
+    public static event SelectableEventHandler OnSelectableHealthChanged;
+
     public static void ItemAddedToInventory(Item item)
     {        
         if (OnItemAddedToInventory != null)
@@ -54,5 +58,11 @@ public class UIEventHandler : MonoBehaviour
     {
         if (OnPlayerLevelChange != null)
             OnPlayerLevelChange();
+    }
+
+    public static void SelectableClicked()
+    {
+        if (OnSelectableClicked != null) 
+            OnSelectableClicked();
     }
 }

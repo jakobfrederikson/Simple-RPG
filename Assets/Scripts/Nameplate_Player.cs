@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerNameplate : MonoBehaviour
+public class Nameplate_Player : MonoBehaviour
 {
     [SerializeField] private string PlayerName;
     [SerializeField] private TextMeshProUGUI playerName, health, intellect;

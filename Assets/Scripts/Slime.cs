@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Slime : Interactable, IEnemy
+public class Slime : Interactable, IEnemy, INameplate
 {
     public LayerMask aggroLayerMask;
     public float currentHealth;
