@@ -50,7 +50,8 @@ public class WorldInteraction : MonoBehaviour
             }
             else
             {
-                Nameplate_Selected.Instance.OnDeselect();
+                if (Nameplate_Selected.Instance.gameObject.activeSelf)
+                    Nameplate_Selected.Instance.OnDeselect();
                 playerAgent.stoppingDistance = 0;
                 playerAgent.destination = interactionInfo.point;
             }
