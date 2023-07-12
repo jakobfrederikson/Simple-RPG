@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Vampire : Interactable, IEnemy, INameplate
 {
     public LayerMask aggroLayerMask;
-    public float currentHealth;
-    public float maxHealth;
+
+    public string Name { get; set; } = "Vampire";
+    public string IconSlug { get; set; } = "vampire";
+    public int MaxHealth { get; set; }
+    public int CurrentHealth { get; set; }
+    public int MaxIntellect { get; set; }
+    public int CurrentIntellect { get; set; }
+    public Image Icon { get; set; }
+    public bool IsSelected { get; set; } = false;
+
+    public int maxHealth;
+    public int maxIntellect;
     public int ID { get; set; }
     public int Experience { get; set; }
     public DropTable DropTable { get; set; }
@@ -32,7 +43,11 @@ public class Vampire : Interactable, IEnemy, INameplate
         Experience = 300;
         navAgent = GetComponent<NavMeshAgent>();
         characterStats = new CharacterStats(8, 10, 2, 10);
-        currentHealth = maxHealth;
+
+        MaxHealth = maxHealth;
+        CurrentHealth = MaxHealth;
+        MaxIntellect = maxIntellect;
+        CurrentIntellect = MaxIntellect;
     }
 
     private void FixedUpdate()
@@ -51,9 +66,12 @@ public class Vampire : Interactable, IEnemy, INameplate
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        CurrentHealth -= amount;
         DamagePopupSystem.Instance.DisplayPopupText(this.transform, amount);
-        if (currentHealth <= 0)
+
+        if (IsSelected)
+            UIEventHandler.SelectedHealthChanged(CurrentHealth, MaxHealth);
+        if (CurrentHealth <= 0)
             Die();
     }
 
@@ -84,6 +102,8 @@ public class Vampire : Interactable, IEnemy, INameplate
         DropLoot();
         CombatEvents.EnemyDied(this);
         this.Spawner.Respawn();
+        if (IsSelected)
+            UIEventHandler.SelectedHealthChanged(CurrentHealth, MaxHealth);
         Destroy(gameObject);
     }
 
