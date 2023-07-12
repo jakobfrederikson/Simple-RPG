@@ -8,21 +8,12 @@ public class Nameplate_Selected : MonoBehaviour
 {
     public static Nameplate_Selected Instance;
 
-    private string selectedName;
+    [SerializeField]
     private TextMeshProUGUI selectedNameText, health, intellect;
+    [SerializeField]
     private Image icon, healthFill, intellectFill;
 
-    public Nameplate_Selected(string _selectedName, TextMeshProUGUI _selectedNameText,
-        TextMeshProUGUI _health, TextMeshProUGUI _intellect, Image _icon,
-        Image _healthFill, Image _intellectFill)
-    {
-        this.selectedName = _selectedName;
-        this.health = _health;
-        this.intellect = _intellect;
-        this.icon = _icon;
-        this.healthFill = _healthFill;
-        this.intellectFill = _intellectFill;
-    }
+    private INameplate currentlySelectedObject;
 
     // Start is called before the first frame update
     void Start()
@@ -36,20 +27,29 @@ public class Nameplate_Selected : MonoBehaviour
             Instance = this;
         }
 
-        //UIEventHandler.OnPlayerHealthChanged += UpdateHealth;
-        //UIEventHandler.OnPlayerIntellectChanged += UpdateIntellect;
-        this.gameObject.SetActive(false);
+        UIEventHandler.OnSelectedHealthChanged += UpdateHealth;
+        UIEventHandler.OnSelectedIntellectChanged += UpdateIntellect;
 
-        if (GetComponent<IEnemy>() != null)
-        {
-            // if enemy, set their colour to red to show is BAD!!!
-            transform.Find("Background_Image").GetComponent<Image>().color = new Color32(173, 6, 9, 100);
-        }
+        this.gameObject.SetActive(false);
     }
 
-    public void OnSelected()
+    public void OnSelected(INameplate selected)
     {
-        this.gameObject.SetActive(true);
+        currentlySelectedObject = selected;
+        currentlySelectedObject.IsSelected = true;
+
+        this.selectedNameText.text = selected.Name;
+        UpdateHealth(selected.CurrentHealth, selected.MaxHealth);
+        UpdateIntellect(selected.CurrentIntellect, selected.MaxIntellect);
+        icon.sprite = Resources.Load<Sprite>("UI/Icons/Enemies/" + selected.IconSlug);
+        this.gameObject.SetActive(true);        
+    }
+
+    public void OnDeselect()
+    {
+        currentlySelectedObject.IsSelected = false;
+        currentlySelectedObject = null;
+        this.gameObject.SetActive(false);
     }
 
     private void UpdateHealth(int currentHealth, int maxHealth)
