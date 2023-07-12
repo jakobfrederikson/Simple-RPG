@@ -50,6 +50,7 @@ public class WorldInteraction : MonoBehaviour
             }
             else
             {
+                Nameplate_Selected.Instance.OnDeselect();
                 playerAgent.stoppingDistance = 0;
                 playerAgent.destination = interactionInfo.point;
             }
@@ -60,7 +61,10 @@ public class WorldInteraction : MonoBehaviour
     {
         if (interactedObject.GetComponent<INameplate>() != null)
         {
-            // set up the nameplate for the enemy/NPC
+            INameplate selected = interactedObject.GetComponent<INameplate>();
+            Debug.Log("Selected NPC: " + selected.Name);
+            Debug.Log("Selected NPC: " + selected.CurrentHealth + " / " + selected.MaxHealth);
+            Nameplate_Selected.Instance.OnSelected(selected);
         }
     }
 }
