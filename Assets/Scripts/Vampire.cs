@@ -9,7 +9,7 @@ public class Vampire : Interactable, IEnemy, INameplate
     public LayerMask aggroLayerMask;
 
     public string Name { get; set; } = "Vampire";
-    public string IconSlug { get; set; } = "vampire";
+    public string IconSlug { get; set; } = "Enemies/vampire";
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
     public int MaxIntellect { get; set; }

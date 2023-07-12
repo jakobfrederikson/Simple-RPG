@@ -41,7 +41,7 @@ public class Nameplate_Selected : MonoBehaviour
         this.selectedNameText.text = selected.Name;
         UpdateHealth(selected.CurrentHealth, selected.MaxHealth);
         UpdateIntellect(selected.CurrentIntellect, selected.MaxIntellect);
-        icon.sprite = Resources.Load<Sprite>("UI/Icons/Enemies/" + selected.IconSlug);
+        icon.sprite = Resources.Load<Sprite>("UI/Icons/" + selected.IconSlug);
         this.gameObject.SetActive(true);        
     }
 

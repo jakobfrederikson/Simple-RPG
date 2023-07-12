@@ -10,7 +10,7 @@ public class Slime : Interactable, IEnemy, INameplate
     public LayerMask aggroLayerMask;
 
     public string Name { get; set; } = "Slime";
-    public string IconSlug { get; set; } = "slime";
+    public string IconSlug { get; set; } = "Enemies/slime";
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
     public int MaxIntellect { get; set; }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NPC : Interactable, INameplate
 {
     public string Name { get; set; }
-    public string IconSlug { get; set; } = "npc";
+    public string IconSlug { get; set; } = "NPC/npc";
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
 
