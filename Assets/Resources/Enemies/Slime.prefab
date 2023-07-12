@@ -156,8 +156,8 @@ MonoBehaviour:
   aggroLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  currentHealth: 0
   maxHealth: 20
+  maxIntellect: 1
   pickupItem: {fileID: 8631941234431501675, guid: 903bf98b5f51c19489d8cf9f7f1465d9,
     type: 3}
 --- !u!195 &8721458925702788529
