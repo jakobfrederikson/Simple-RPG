@@ -20,9 +20,11 @@ public class UIEventHandler : MonoBehaviour
     public delegate void PlayerLevelEventHandler();
     public static event PlayerLevelEventHandler OnPlayerLevelChange;
 
-    public delegate void SelectableEventHandler();
-    public static event SelectableEventHandler OnSelectableClicked;
-    public static event SelectableEventHandler OnSelectableHealthChanged;
+    public delegate void SelectedHealthEventHandler(int currentHealth, int maxHealth);
+    public static event SelectedHealthEventHandler OnSelectedHealthChanged;
+
+    public delegate void SelectedIntellectEventHandler(int currentIntellect, int maxIntellect);
+    public static event SelectedIntellectEventHandler OnSelectedIntellectChanged;
 
     public static void ItemAddedToInventory(Item item)
     {        
@@ -42,10 +44,22 @@ public class UIEventHandler : MonoBehaviour
             OnPlayerHealthChanged(currentHealth, maxHealth);
     }
 
+    public static void SelectedHealthChanged(int currentHealth, int maxHealth)
+    {
+        if (OnSelectedHealthChanged != null)
+            OnSelectedHealthChanged(currentHealth, maxHealth);
+    }
+
     public static void IntellectChanged(int currentIntellect, int maxIntellect)
     {
         if (OnPlayerIntellectChanged != null)
             OnPlayerIntellectChanged(currentIntellect, maxIntellect);
+    }
+
+    public static void SelectedIntellectChanged(int currentIntellect, int maxIntellect)
+    {
+        if (OnSelectedIntellectChanged != null)
+            OnSelectedIntellectChanged(currentIntellect, maxIntellect);
     }
 
     public static void StatsChanged()
@@ -58,11 +72,5 @@ public class UIEventHandler : MonoBehaviour
     {
         if (OnPlayerLevelChange != null)
             OnPlayerLevelChange();
-    }
-
-    public static void SelectableClicked()
-    {
-        if (OnSelectableClicked != null) 
-            OnSelectableClicked();
     }
 }
