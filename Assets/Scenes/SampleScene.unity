@@ -1394,6 +1394,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49b0fa95833dda49941b6d72eb22cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedNameText: {fileID: 1436237767}
+  health: {fileID: 1882873711}
+  intellect: {fileID: 898076956}
+  icon: {fileID: 964711306}
+  healthFill: {fileID: 733542913}
+  intellectFill: {fileID: 1842790902}
 --- !u!1 &273960274
 GameObject:
   m_ObjectHideFlags: 0
@@ -5266,7 +5272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f22cfc0c74060c747bb9bf7c464be4be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c128d7b4c2ef88541abdc8331093a07e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6312,6 +6318,8 @@ MonoBehaviour:
   - Skrrt
   - BITCH!
   name: Quavo
+  maxHealth: 5
+  maxIntellect: 5
 --- !u!1 &1157364544
 GameObject:
   m_ObjectHideFlags: 0
@@ -8164,7 +8172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000061035156, y: 149.83423}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 1362.886, y: 248.20502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614123918
@@ -8874,6 +8882,8 @@ MonoBehaviour:
   - Hey! This is my default dialogue.
   - MOMMA!
   name: TakeOff
+  maxHealth: 5
+  maxIntellect: 5
   quests: {fileID: 1966959043}
   questType: ASlimeyProblem
 --- !u!23 &1727016249
