@@ -63,8 +63,6 @@ public class WorldInteraction : MonoBehaviour
         if (interactedObject.GetComponent<INameplate>() != null)
         {
             INameplate selected = interactedObject.GetComponent<INameplate>();
-            Debug.Log("Selected NPC: " + selected.Name);
-            Debug.Log("Selected NPC: " + selected.CurrentHealth + " / " + selected.MaxHealth);
             Nameplate_Selected.Instance.OnSelected(selected);
         }
     }

@@ -7,6 +7,7 @@ public class UIEventHandler : MonoBehaviour
     public delegate void ItemEventHandler(Item item);
     public static event ItemEventHandler OnItemAddedToInventory;
     public static event ItemEventHandler OnItemEquipped;
+    public static event ItemEventHandler OnItemRemoved;
 
     public delegate void PlayerHealthEventHandler(int currentHealth, int maxHealth);
     public static event PlayerHealthEventHandler OnPlayerHealthChanged;
@@ -36,6 +37,12 @@ public class UIEventHandler : MonoBehaviour
     {
         if (OnItemEquipped != null)
             OnItemEquipped(item);
+    }
+
+    public static void ItemRemoved(Item item)
+    {
+        if (OnItemRemoved != null)
+            OnItemRemoved(item);
     }
 
     public static void HealthChanged(int currentHealth, int maxHealth)
